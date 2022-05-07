@@ -3,6 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const subscriptionsRouter = require("./routes/subscribe");
+const cors = require("cors");
+app.use(cors({
+    origin: '*'
+}));
 dotenv.config();
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true }, () => {
     console.log("Mongo Connected");
